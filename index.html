@@ -3,59 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DOMA — подбор и продажа квартир в Актобе.">
+
+<meta name="description"
+content="DOMA — недвижимость Актобе. Продажа и подбор квартир, домов и недвижимости.">
+
 <meta name="theme-color" content="#111111">
+
 <title>DOMA — Недвижимость Актобе</title>
 
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f5f2;
+  background:#f4f4f1;
   color:#111;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
+
+body.lock{
+  overflow:hidden;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:20;
-  background:rgba(245,245,242,.94);
-  backdrop-filter:blur(14px);
+  z-index:50;
+  background:rgba(244,244,241,.94);
+  backdrop-filter:blur(18px);
   border-bottom:1px solid #ddd;
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
-  padding:18px 24px;
+  padding:15px 22px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   gap:20px;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:-1px;
+  font-size:26px;
+  font-weight:950;
+  letter-spacing:-1.5px;
 }
 
-.nav-right{
+.logo small{
+  display:block;
+  font-size:9px;
+  letter-spacing:1.5px;
+  color:#777;
+  margin-top:2px;
+}
+
+.nav-links{
   display:flex;
-  gap:10px;
+  gap:8px;
   align-items:center;
 }
+
+.nav-links a{
+  padding:9px 12px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.nav-links a:hover{
+  background:#e9e9e5;
+}
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
   border:0;
   border-radius:12px;
-  padding:12px 18px;
+  padding:12px 17px;
   background:#111;
   color:#fff;
+  font-weight:700;
+  transition:.18s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
 }
 
 .btn.secondary{
@@ -64,83 +124,128 @@ header{
   border:1px solid #ccc;
 }
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 24px;
+.btn.whatsapp{
+  background:#111;
 }
 
+.btn.full{
+  width:100%;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  width:min(1250px,calc(100% - 40px));
+  margin:auto;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-  padding:80px 0 45px;
+  padding:85px 0 45px;
 }
 
 .hero-label{
-  font-size:14px;
-  color:#666;
+  color:#777;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.3px;
   margin-bottom:18px;
 }
 
 .hero h1{
   max-width:900px;
-  font-size:clamp(42px,7vw,82px);
-  line-height:.96;
-  letter-spacing:-4px;
-  margin:0 0 28px;
+  margin:0;
+  font-size:clamp(48px,7vw,88px);
+  line-height:.94;
+  letter-spacing:-5px;
 }
 
-.hero p{
+.hero-text{
   max-width:650px;
   color:#666;
   font-size:18px;
-  line-height:1.5;
+  line-height:1.6;
+  margin-top:25px;
 }
 
-.ai-box{
+/* =========================
+   SEARCH
+========================= */
+
+.smart-search{
   margin-top:35px;
-  background:#111;
-  color:#fff;
   padding:24px;
-  border-radius:22px;
+  background:#111;
+  border-radius:24px;
+  color:#fff;
 }
 
-.ai-title{
-  font-size:14px;
-  color:#aaa;
-  margin-bottom:12px;
+.smart-title{
+  font-size:12px;
+  color:#999;
+  letter-spacing:1.2px;
+  margin-bottom:10px;
 }
 
-.ai-row{
+.search-row{
   display:flex;
   gap:10px;
 }
 
-.ai-row input{
+.search-row input{
   flex:1;
   min-width:0;
   padding:17px;
   border:0;
   border-radius:12px;
-  outline:0;
+  outline:none;
+  background:#fff;
+  color:#111;
 }
 
-.ai-row button{
-  padding:0 22px;
+.search-row button{
   border:0;
   border-radius:12px;
   background:#fff;
   color:#111;
-  font-weight:700;
+  padding:0 25px;
+  font-weight:800;
 }
 
+.quick-searches{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:13px;
+}
+
+.quick-searches button{
+  border:1px solid #444;
+  background:#191919;
+  color:#ddd;
+  padding:8px 11px;
+  border-radius:20px;
+  font-size:12px;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
 .filters{
+  margin:20px 0 35px;
   background:#fff;
   border:1px solid #ddd;
-  border-radius:18px;
+  border-radius:20px;
   padding:18px;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(6,1fr);
   gap:10px;
-  margin:20px 0 35px;
 }
 
 .field{
@@ -150,18 +255,34 @@ header{
 }
 
 .field label{
-  font-size:12px;
+  font-size:11px;
   color:#777;
+  font-weight:700;
 }
 
 .field input,
-.field select{
+.field select,
+.field textarea{
   width:100%;
   padding:12px;
   border:1px solid #ccc;
   border-radius:10px;
   background:#fff;
-  outline:0;
+  outline:none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:#111;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  padding:25px 0 70px;
 }
 
 .section-head{
@@ -174,20 +295,23 @@ header{
 
 .section-head h2{
   margin:0;
-  font-size:32px;
-  letter-spacing:-1px;
+  font-size:34px;
+  letter-spacing:-1.5px;
 }
 
 .counter{
   color:#777;
-  font-size:14px;
+  font-size:13px;
 }
+
+/* =========================
+   LISTINGS
+========================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
-  padding-bottom:70px;
 }
 
 .card{
@@ -200,13 +324,26 @@ header{
 
 .card:hover{
   transform:translateY(-3px);
-  box-shadow:0 12px 35px rgba(0,0,0,.07);
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
-.photo{
-  height:220px;
-  background:
-    linear-gradient(135deg,#ddd,#f6f6f6);
+.card-photo{
+  height:235px;
+  position:relative;
+  background:#ddd;
+  overflow:hidden;
+}
+
+.card-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.no-photo{
+  width:100%;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -214,60 +351,179 @@ header{
   font-size:13px;
 }
 
+.favorite{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:0;
+  background:rgba(255,255,255,.93);
+  font-size:21px;
+  z-index:2;
+}
+
+.favorite.active{
+  background:#111;
+  color:#fff;
+}
+
+.status{
+  position:absolute;
+  left:12px;
+  top:12px;
+  padding:7px 10px;
+  border-radius:20px;
+  background:#fff;
+  font-size:11px;
+  font-weight:800;
+}
+
+.status.sold{
+  background:#222;
+  color:#fff;
+}
+
+.status.booked{
+  background:#ddd;
+}
+
 .card-body{
-  padding:20px;
+  padding:19px;
 }
 
 .tag{
   display:inline-block;
-  font-size:12px;
-  background:#f0f0ed;
   padding:7px 10px;
+  background:#f0f0ec;
   border-radius:20px;
-  margin-bottom:12px;
+  color:#555;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:11px;
 }
 
 .card h3{
-  margin:0 0 10px;
-  font-size:21px;
+  margin:0 0 9px;
+  font-size:20px;
 }
 
 .price{
   font-size:25px;
-  font-weight:800;
-  margin-bottom:10px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.price-m2{
+  color:#777;
+  font-size:12px;
+  margin-bottom:12px;
 }
 
 .meta{
   color:#666;
-  line-height:1.5;
-  font-size:14px;
-  margin-bottom:18px;
+  line-height:1.6;
+  font-size:13px;
+  margin-bottom:17px;
 }
 
 .card-actions{
-  display:flex;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:8px;
-}
-
-.card-actions button{
-  flex:1;
 }
 
 .empty{
   grid-column:1/-1;
   background:#fff;
   border:1px dashed #bbb;
-  padding:50px;
+  border-radius:20px;
+  padding:55px 20px;
   text-align:center;
-  border-radius:18px;
   color:#777;
 }
 
-.about{
+/* =========================
+   SELL SECTION
+========================= */
+
+.sell{
   background:#111;
   color:#fff;
-  padding:65px 0;
+  padding:75px 0;
+}
+
+.sell-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.sell h2{
+  margin:0;
+  font-size:clamp(40px,5vw,65px);
+  line-height:.95;
+  letter-spacing:-3px;
+}
+
+.sell p{
+  color:#aaa;
+  line-height:1.7;
+  font-size:16px;
+}
+
+.sell-list{
+  margin-top:25px;
+  display:grid;
+  gap:12px;
+}
+
+.sell-list div{
+  border-bottom:1px solid #333;
+  padding-bottom:12px;
+  color:#ddd;
+}
+
+.form-card{
+  background:#fff;
+  color:#111;
+  border-radius:22px;
+  padding:25px;
+}
+
+.form-card h3{
+  margin-top:0;
+  font-size:25px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.form-full{
+  grid-column:1/-1;
+}
+
+.form-card textarea{
+  width:100%;
+  min-height:100px;
+  resize:vertical;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  outline:none;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+  padding:75px 0;
 }
 
 .about-grid{
@@ -277,24 +533,29 @@ header{
 }
 
 .about h2{
-  font-size:48px;
-  letter-spacing:-2px;
   margin:0;
+  font-size:52px;
+  line-height:1;
+  letter-spacing:-3px;
 }
 
 .about p{
-  color:#bbb;
+  color:#666;
   line-height:1.7;
 }
 
+/* =========================
+   CONTACT
+========================= */
+
 .contact{
-  padding:60px 0;
+  padding:30px 0 70px;
 }
 
 .contact-box{
   background:#fff;
   border:1px solid #ddd;
-  border-radius:20px;
+  border-radius:22px;
   padding:30px;
   display:flex;
   justify-content:space-between;
@@ -304,8 +565,12 @@ header{
 
 .phone{
   font-size:30px;
-  font-weight:800;
+  font-weight:900;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   border-top:1px solid #ddd;
@@ -314,15 +579,19 @@ footer{
   font-size:13px;
 }
 
+/* =========================
+   MODAL
+========================= */
+
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.55);
+  z-index:100;
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:100;
-  padding:20px;
+  padding:18px;
+  background:rgba(0,0,0,.65);
 }
 
 .modal.active{
@@ -330,28 +599,139 @@ footer{
 }
 
 .modal-box{
-  width:min(650px,100%);
-  max-height:90vh;
+  width:min(800px,100%);
+  max-height:92vh;
   overflow:auto;
   background:#fff;
-  border-radius:20px;
+  border-radius:22px;
   padding:25px;
 }
 
 .modal-head{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:15px;
   margin-bottom:20px;
 }
 
-.close{
-  border:0;
-  background:#eee;
-  border-radius:10px;
-  width:38px;
-  height:38px;
+.modal-head h2{
+  margin:0;
 }
+
+.close{
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:10px;
+  background:#eee;
+  font-size:22px;
+}
+
+/* =========================
+   PROPERTY MODAL
+========================= */
+
+.property-gallery{
+  position:relative;
+  height:420px;
+  background:#ddd;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.property-gallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.gallery-button{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  font-size:22px;
+}
+
+.gallery-prev{
+  left:12px;
+}
+
+.gallery-next{
+  right:12px;
+}
+
+.gallery-count{
+  position:absolute;
+  bottom:12px;
+  left:12px;
+  padding:7px 10px;
+  background:rgba(0,0,0,.65);
+  color:#fff;
+  border-radius:10px;
+  font-size:12px;
+}
+
+.property-info{
+  padding-top:22px;
+}
+
+.property-info h2{
+  margin:0 0 10px;
+  font-size:30px;
+}
+
+.property-price{
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+.property-m2{
+  color:#777;
+  margin-bottom:18px;
+}
+
+.property-specs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin:20px 0;
+}
+
+.spec{
+  background:#f3f3ef;
+  border-radius:12px;
+  padding:13px;
+}
+
+.spec small{
+  display:block;
+  color:#777;
+  font-size:11px;
+  margin-bottom:5px;
+}
+
+.property-description{
+  color:#555;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.property-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+}
+
+/* =========================
+   ADMIN
+========================= */
 
 .admin-grid{
   display:grid;
@@ -360,11 +740,13 @@ footer{
 }
 
 .admin-grid input,
-.admin-grid select{
+.admin-grid select,
+.admin-grid textarea{
   width:100%;
   padding:12px;
   border:1px solid #ccc;
   border-radius:10px;
+  outline:none;
 }
 
 .admin-full{
@@ -377,45 +759,93 @@ footer{
 
 .admin-item{
   border:1px solid #ddd;
-  padding:14px;
-  border-radius:12px;
-  margin-bottom:10px;
+  border-radius:13px;
+  padding:13px;
+  margin-bottom:9px;
   display:flex;
+  align-items:center;
   justify-content:space-between;
   gap:10px;
 }
 
-.danger{
-  background:#111;
-  color:#fff;
-  border:0;
-  border-radius:8px;
-  padding:8px 12px;
+.admin-buttons{
+  display:flex;
+  gap:6px;
 }
 
-@media(max-width:900px){
+.admin-danger{
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:8px 11px;
+  border-radius:8px;
+}
+
+.admin-edit{
+  border:1px solid #ccc;
+  background:#fff;
+  padding:8px 11px;
+  border-radius:8px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(20px);
+  background:#111;
+  color:#fff;
+  padding:13px 18px;
+  border-radius:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:300;
+  font-size:13px;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
   .filters{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
+
   .grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .sell-grid,
   .about-grid{
     grid-template-columns:1fr;
   }
+
 }
 
-@media(max-width:600px){
-  .nav{
-    padding:15px;
-  }
-
-  .nav-right span{
-    display:none;
-  }
+@media(max-width:650px){
 
   .container{
-    padding:0 15px;
+    width:min(100% - 30px,1250px);
+  }
+
+  .nav{
+    padding:13px 15px;
+  }
+
+  .nav-links{
+    display:none;
   }
 
   .hero{
@@ -423,16 +853,16 @@ footer{
   }
 
   .hero h1{
-    font-size:47px;
-    letter-spacing:-2.5px;
+    font-size:48px;
+    letter-spacing:-3px;
   }
 
-  .ai-row{
+  .search-row{
     flex-direction:column;
   }
 
-  .ai-row button{
-    padding:14px;
+  .search-row button{
+    padding:15px;
   }
 
   .filters{
@@ -441,6 +871,27 @@ footer{
 
   .grid{
     grid-template-columns:1fr;
+  }
+
+  .section-head{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .sell{
+    padding:55px 0;
+  }
+
+  .sell h2{
+    font-size:45px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-full{
+    grid-column:auto;
   }
 
   .contact-box{
@@ -452,6 +903,18 @@ footer{
     font-size:24px;
   }
 
+  .property-gallery{
+    height:270px;
+  }
+
+  .property-specs{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .property-actions{
+    grid-template-columns:1fr;
+  }
+
   .admin-grid{
     grid-template-columns:1fr;
   }
@@ -459,6 +922,12 @@ footer{
   .admin-full{
     grid-column:auto;
   }
+
+  .admin-item{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
 }
 </style>
 </head>
@@ -466,38 +935,71 @@ footer{
 <body>
 
 <header>
-  <nav class="nav">
-    <div class="logo">DOMA</div>
 
-    <div class="nav-right">
-      <span>Недвижимость · Актобе</span>
-      <button class="btn secondary" onclick="openAdmin()">Админ</button>
+  <nav class="nav">
+
+    <a href="#" class="logo">
+      DOMA
+      <small>НЕДВИЖИМОСТЬ · АКТОБЕ</small>
+    </a>
+
+    <div class="nav-links">
+
+      <a href="#catalog">
+        Квартиры
+      </a>
+
+      <a href="#sell">
+        Продать
+      </a>
+
+      <a href="#about">
+        О DOMA
+      </a>
+
     </div>
+
+    <button class="btn secondary" onclick="openAdmin()">
+      Админ
+    </button>
+
   </nav>
+
 </header>
+
 
 <main>
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
+
   <div class="container">
 
-    <div class="hero-label">DOMA / АКТОБЕ</div>
+    <div class="hero-label">
+      DOMA / АКТОБЕ
+    </div>
 
-    <h1>Найдите квартиру под себя.</h1>
+    <h1>
+      Найдите квартиру под себя.
+    </h1>
 
-    <p>
-      Подбор квартир по району, количеству комнат, цене,
-      площади и этажу. Выбирайте подходящий вариант и связывайтесь
-      напрямую с риелтором.
-    </p>
+    <div class="hero-text">
+      Подбираем квартиры по району, цене, площади и количеству комнат.
+      Хотите продать — поможем оценить объект и найти покупателя.
+    </div>
 
-    <div class="ai-box">
 
-      <div class="ai-title">
+    <div class="smart-search">
+
+      <div class="smart-title">
         УМНЫЙ ПОИСК
       </div>
 
-      <div class="ai-row">
+      <div class="search-row">
+
         <input
           id="aiInput"
           placeholder="Например: 2 комнаты до 22 млн, 50 м², Батыс"
@@ -506,229 +1008,828 @@ footer{
         <button onclick="smartSearch()">
           Найти
         </button>
+
+      </div>
+
+
+      <div class="quick-searches">
+
+        <button onclick="quickSearch('2 комнаты до 20 млн')">
+          2 комнаты до 20 млн
+        </button>
+
+        <button onclick="quickSearch('1 комната Батыс')">
+          1 комната Батыс
+        </button>
+
+        <button onclick="quickSearch('3 комнаты до 30 млн')">
+          3 комнаты до 30 млн
+        </button>
+
+        <button onclick="quickSearch('квартира после ремонта')">
+          После ремонта
+        </button>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<section>
-<div class="container">
 
-  <div class="filters">
+<!-- =========================
+     CATALOG
+========================= -->
 
-    <div class="field">
-      <label>Район</label>
-      <select id="district">
-        <option value="">Все районы</option>
-        <option>Батыс</option>
-        <option>Старый город</option>
-        <option>11-й микрорайон</option>
-        <option>Алга</option>
-        <option>Акжар</option>
-        <option>Авиагородок</option>
-        <option>Жилянка</option>
-        <option>Нур Актобе</option>
-      </select>
+<section class="section" id="catalog">
+
+  <div class="container">
+
+    <div class="filters">
+
+      <div class="field">
+
+        <label>
+          Район
+        </label>
+
+        <select id="district">
+
+          <option value="">
+            Все районы
+          </option>
+
+          <option>Батыс</option>
+          <option>Старый город</option>
+          <option>11-й микрорайон</option>
+          <option>Алга</option>
+          <option>Акжар</option>
+          <option>Авиагородок</option>
+          <option>Жилянка</option>
+          <option>Нур Актобе</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Комнаты
+        </label>
+
+        <select id="rooms">
+
+          <option value="">
+            Любое
+          </option>
+
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4+</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Цена до, ₸
+        </label>
+
+        <input
+          id="maxPrice"
+          type="number"
+          placeholder="25 000 000"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Площадь от, м²
+        </label>
+
+        <input
+          id="minArea"
+          type="number"
+          placeholder="45"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Этаж
+        </label>
+
+        <input
+          id="floor"
+          type="number"
+          placeholder="5"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          Состояние
+        </label>
+
+        <select id="conditionFilter">
+
+          <option value="">
+            Любое
+          </option>
+
+          <option value="ремонт">
+            После ремонта
+          </option>
+
+          <option value="хорош">
+            Хорошее
+          </option>
+
+        </select>
+
+      </div>
+
     </div>
 
-    <div class="field">
-      <label>Комнаты</label>
-      <select id="rooms">
-        <option value="">Любое</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4+</option>
-      </select>
+
+    <div class="section-head">
+
+      <h2>
+        Квартиры
+      </h2>
+
+      <div
+        class="counter"
+        id="counter"
+      ></div>
+
     </div>
 
-    <div class="field">
-      <label>Максимальная цена, ₸</label>
-      <input id="maxPrice" type="number" placeholder="Например 25000000">
-    </div>
 
-    <div class="field">
-      <label>Минимальная площадь, м²</label>
-      <input id="minArea" type="number" placeholder="Например 45">
-    </div>
+    <div
+      class="grid"
+      id="listings"
+    ></div>
 
-    <div class="field">
-      <label>Этаж</label>
-      <input id="floor" type="number" placeholder="Например 5">
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SELL
+========================= -->
+
+<section class="sell" id="sell">
+
+  <div class="container">
+
+    <div class="sell-grid">
+
+      <div>
+
+        <div class="hero-label">
+          ДЛЯ СОБСТВЕННИКОВ
+        </div>
+
+        <h2>
+          Хотите продать квартиру?
+        </h2>
+
+        <p>
+          Оставьте информацию об объекте.
+          Я свяжусь с вами, оценю квартиру и расскажу,
+          как лучше вывести её на рынок.
+        </p>
+
+
+        <div class="sell-list">
+
+          <div>
+            01 — Оценим рыночную стоимость
+          </div>
+
+          <div>
+            02 — Подготовим объявление
+          </div>
+
+          <div>
+            03 — Организуем показы
+          </div>
+
+          <div>
+            04 — Поможем провести сделку
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-card">
+
+        <h3>
+          Оценить квартиру
+        </h3>
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>
+              Район
+            </label>
+
+            <input
+              id="sellDistrict"
+              placeholder="Например, Батыс"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Комнаты
+            </label>
+
+            <input
+              id="sellRooms"
+              type="number"
+              placeholder="2"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Площадь
+            </label>
+
+            <input
+              id="sellArea"
+              type="number"
+              placeholder="55"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Желаемая цена
+            </label>
+
+            <input
+              id="sellPrice"
+              type="number"
+              placeholder="22 000 000"
+            >
+
+          </div>
+
+
+          <div class="field form-full">
+
+            <label>
+              Телефон
+            </label>
+
+            <input
+              id="sellPhone"
+              type="tel"
+              placeholder="+7 705 835 5203"
+            >
+
+          </div>
+
+
+          <div class="field form-full">
+
+            <label>
+              Дополнительно
+            </label>
+
+            <textarea
+              id="sellComment"
+              placeholder="Ремонт, этаж, адрес и другая информация"
+            ></textarea>
+
+          </div>
+
+
+          <button
+            class="btn full form-full"
+            onclick="sendSellRequest()"
+          >
+            Отправить заявку в WhatsApp
+          </button>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
-  <div class="section-head">
-    <h2>Квартиры</h2>
-    <div class="counter" id="counter"></div>
-  </div>
-
-  <div class="grid" id="listings"></div>
-
-</div>
 </section>
 
-<section class="about">
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+  class="about"
+  id="about"
+>
+
   <div class="container">
 
     <div class="about-grid">
 
       <div>
-        <div class="hero-label">О DOMA</div>
-        <h2>Недвижимость без лишнего.</h2>
+
+        <div class="hero-label">
+          О DOMA
+        </div>
+
+        <h2>
+          Недвижимость без лишнего.
+        </h2>
+
       </div>
 
+
       <div>
+
         <p>
-          DOMA — персональный каталог квартир риелтора.
-          Здесь можно подобрать объект по параметрам,
-          посмотреть характеристики и связаться по поводу просмотра.
+          DOMA — каталог недвижимости Актобе,
+          созданный для быстрого поиска квартиры
+          и прямой связи с риелтором.
         </p>
 
         <p>
-          База квартир постепенно пополняется новыми объектами.
+          Здесь можно подобрать объект,
+          сохранить понравившиеся варианты
+          и отправить заявку на подбор.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
+
+<!-- =========================
+     CONTACT
+========================= -->
+
 <section class="contact">
+
   <div class="container">
 
     <div class="contact-box">
 
       <div>
-        <div class="hero-label">КОНТАКТ</div>
-        <div class="phone">+7 705 835 5203</div>
+
+        <div class="hero-label">
+          КОНТАКТ
+        </div>
+
+        <div class="phone">
+          +7 705 835 5203
+        </div>
+
       </div>
 
-      <button class="btn" onclick="contact()">
-        Связаться
-      </button>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+
+        <button
+          class="btn"
+          onclick="callAgent()"
+        >
+          Позвонить
+        </button>
+
+        <button
+          class="btn secondary"
+          onclick="openWhatsApp('Здравствуйте! Хочу узнать подробнее о недвижимости DOMA.')"
+        >
+          WhatsApp
+        </button>
+
+      </div>
 
     </div>
 
   </div>
+
 </section>
 
 </main>
 
+
 <footer>
+
   <div class="container">
+
     © 2026 DOMA · Недвижимость Актобе
+
   </div>
+
 </footer>
 
-<!-- ADMIN MODAL -->
 
-<div class="modal" id="adminModal">
+<!-- =========================
+     PROPERTY MODAL
+========================= -->
 
-  <div class="modal-box">
+<div
+  class="modal"
+  id="propertyModal"
+  onclick="closeModalOutside(event,'propertyModal')"
+>
+
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+  >
 
     <div class="modal-head">
-      <h2>Админ-панель</h2>
-      <button class="close" onclick="closeAdmin()">×</button>
-    </div>
 
-    <p style="color:#777;font-size:14px">
-      Добавляй квартиры в каталог. Данные сохраняются
-      в браузере этого устройства.
-    </p>
-
-    <div class="admin-grid">
-
-      <input id="aTitle" placeholder="Название квартиры">
-
-      <select id="aDistrict">
-        <option>Батыс</option>
-        <option>Старый город</option>
-        <option>11-й микрорайон</option>
-        <option>Алга</option>
-        <option>Акжар</option>
-        <option>Авиагородок</option>
-        <option>Жилянка</option>
-        <option>Нур Актобе</option>
-      </select>
-
-      <input id="aRooms" type="number" placeholder="Комнаты">
-
-      <input id="aPrice" type="number" placeholder="Цена ₸">
-
-      <input id="aArea" type="number" placeholder="Площадь м²">
-
-      <input id="aFloor" type="number" placeholder="Этаж">
-
-      <input
-        id="aCondition"
-        class="admin-full"
-        placeholder="Состояние / описание"
-      >
+      <h2>
+        Объект DOMA
+      </h2>
 
       <button
-        class="btn admin-full"
-        onclick="addListing()"
+        class="close"
+        onclick="closeProperty()"
       >
-        Добавить квартиру
+        ×
       </button>
 
     </div>
 
-    <div class="admin-list" id="adminList"></div>
+
+    <div
+      class="property-gallery"
+      id="propertyGallery"
+    ></div>
+
+
+    <div
+      class="property-info"
+      id="propertyInfo"
+    ></div>
 
   </div>
 
 </div>
 
+
+<!-- =========================
+     ADMIN MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="adminModal"
+  onclick="closeModalOutside(event,'adminModal')"
+>
+
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+  >
+
+    <div class="modal-head">
+
+      <h2>
+        Админ-панель
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeAdmin()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div id="adminLogin">
+
+      <p style="color:#777">
+        Введите пароль администратора.
+      </p>
+
+      <input
+        id="adminPassword"
+        type="password"
+        placeholder="Пароль"
+        style="width:100%;padding:13px;border:1px solid #ccc;border-radius:10px;margin-bottom:10px"
+      >
+
+      <button
+        class="btn full"
+        onclick="loginAdmin()"
+      >
+        Войти
+      </button>
+
+    </div>
+
+
+    <div
+      id="adminPanel"
+      style="display:none"
+    >
+
+      <p style="color:#777;font-size:13px">
+        Здесь можно добавлять и удалять объекты.
+        Данные сохраняются в браузере.
+      </p>
+
+
+      <div class="admin-grid">
+
+        <input
+          id="aTitle"
+          placeholder="Название квартиры"
+        >
+
+        <select id="aDistrict">
+
+          <option>Батыс</option>
+          <option>Старый город</option>
+          <option>11-й микрорайон</option>
+          <option>Алга</option>
+          <option>Акжар</option>
+          <option>Авиагородок</option>
+          <option>Жилянка</option>
+          <option>Нур Актобе</option>
+
+        </select>
+
+
+        <input
+          id="aRooms"
+          type="number"
+          placeholder="Комнаты"
+        >
+
+        <input
+          id="aPrice"
+          type="number"
+          placeholder="Цена ₸"
+        >
+
+        <input
+          id="aArea"
+          type="number"
+          placeholder="Площадь м²"
+        >
+
+        <input
+          id="aFloor"
+          type="number"
+          placeholder="Этаж"
+        >
+
+
+        <select
+          id="aStatus"
+          class="admin-full"
+        >
+
+          <option value="sale">
+            В продаже
+          </option>
+
+          <option value="booked">
+            Бронь
+          </option>
+
+          <option value="sold">
+            Продано
+          </option>
+
+        </select>
+
+
+        <input
+          id="aCondition"
+          class="admin-full"
+          placeholder="Состояние: После ремонта"
+        >
+
+
+        <input
+          id="aImages"
+          class="admin-full"
+          placeholder="Ссылки на фото через запятую"
+        >
+
+
+        <textarea
+          id="aDescription"
+          class="admin-full"
+          placeholder="Описание квартиры"
+        ></textarea>
+
+
+        <button
+          class="btn admin-full"
+          onclick="addListing()"
+        >
+          Добавить квартиру
+        </button>
+
+      </div>
+
+
+      <div
+        class="admin-list"
+        id="adminList"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
 <script>
 
-const STORAGE_KEY = "doma_realty_listings";
+/* ==========================================
+   DOMA SETTINGS
+========================================== */
+
+const PHONE = "+77058355203";
+
+const WHATSAPP = "77058355203";
+
+const ADMIN_PASSWORD = "1234";
+
+const STORAGE_KEY = "doma_realty_v2";
+
+const FAVORITES_KEY = "doma_favorites_v2";
+
+
+/* ==========================================
+   DEFAULT LISTINGS
+========================================== */
 
 const defaultListings = [
 
   {
     id:1,
+
     title:"2-комнатная квартира",
+
     district:"Батыс",
+
     rooms:2,
+
     price:21500000,
+
     area:56,
+
     floor:5,
-    condition:"После ремонта"
+
+    totalFloors:9,
+
+    condition:"После ремонта",
+
+    status:"sale",
+
+    description:
+      "Светлая двухкомнатная квартира в Батысе. Хороший вариант для проживания или дальнейшей сдачи.",
+
+    images:[]
+
   },
+
 
   {
     id:2,
+
     title:"1-комнатная квартира",
+
     district:"Старый город",
+
     rooms:1,
+
     price:14500000,
+
     area:39,
+
     floor:2,
-    condition:"Хорошее состояние"
+
+    totalFloors:5,
+
+    condition:"Хорошее состояние",
+
+    status:"sale",
+
+    description:
+      "Компактная квартира в Старом городе. Подходит для первого жилья или аренды.",
+
+    images:[]
+
   },
+
 
   {
     id:3,
+
     title:"3-комнатная квартира",
+
     district:"11-й микрорайон",
+
     rooms:3,
+
     price:28900000,
+
     area:72,
+
     floor:7,
-    condition:"Евроремонт"
+
+    totalFloors:9,
+
+    condition:"Евроремонт",
+
+    status:"sale",
+
+    description:
+      "Просторная трёхкомнатная квартира с современным ремонтом.",
+
+    images:[]
+
   }
 
 ];
 
+
+/* ==========================================
+   DATA
+========================================== */
+
 let listings =
-  JSON.parse(localStorage.getItem(STORAGE_KEY))
-  || defaultListings;
+  JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+  ) || defaultListings;
+
+
+let favorites =
+  JSON.parse(
+    localStorage.getItem(FAVORITES_KEY)
+  ) || [];
+
+
+let currentProperty = null;
+
+let currentImage = 0;
+
+
+/* ==========================================
+   SAVE
+========================================== */
 
 function save(){
 
@@ -739,125 +1840,369 @@ function save(){
 
 }
 
-function money(value){
 
-  return new Intl.NumberFormat("ru-RU").format(value)
-  + " ₸";
+function saveFavorites(){
+
+  localStorage.setItem(
+    FAVORITES_KEY,
+    JSON.stringify(favorites)
+  );
 
 }
+
+
+/* ==========================================
+   FORMAT
+========================================== */
+
+function money(value){
+
+  return new Intl.NumberFormat(
+    "ru-RU"
+  ).format(value) + " ₸";
+
+}
+
+
+function priceM2(item){
+
+  if(!item.area)
+    return 0;
+
+  return Math.round(
+    item.price / item.area
+  );
+
+}
+
+
+function statusText(status){
+
+  if(status === "sold")
+    return "Продано";
+
+  if(status === "booked")
+    return "Бронь";
+
+  return "В продаже";
+
+}
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+function toast(message){
+
+  const el =
+    document.getElementById("toast");
+
+  el.textContent = message;
+
+  el.classList.add("show");
+
+  setTimeout(
+    () => el.classList.remove("show"),
+    2200
+  );
+
+}
+
+
+/* ==========================================
+   FAVORITES
+========================================== */
+
+function isFavorite(id){
+
+  return favorites.includes(id);
+
+}
+
+
+function toggleFavorite(id){
+
+  if(isFavorite(id)){
+
+    favorites =
+      favorites.filter(
+        x => x !== id
+      );
+
+    toast("Удалено из избранного");
+
+  }else{
+
+    favorites.push(id);
+
+    toast("Добавлено в избранное");
+
+  }
+
+  saveFavorites();
+
+  render();
+
+}
+
+
+/* ==========================================
+   RENDER
+========================================== */
 
 function render(){
 
   const box =
     document.getElementById("listings");
 
+
   const district =
     document.getElementById("district").value;
+
 
   const rooms =
     document.getElementById("rooms").value;
 
+
   const maxPrice =
-    Number(document.getElementById("maxPrice").value) || Infinity;
+    Number(
+      document.getElementById("maxPrice").value
+    ) || Infinity;
+
 
   const minArea =
-    Number(document.getElementById("minArea").value) || 0;
+    Number(
+      document.getElementById("minArea").value
+    ) || 0;
+
 
   const floor =
-    Number(document.getElementById("floor").value) || 0;
+    Number(
+      document.getElementById("floor").value
+    ) || 0;
 
-  const result = listings.filter(x => {
 
-    if(district && x.district !== district)
-      return false;
+  const condition =
+    document.getElementById(
+      "conditionFilter"
+    ).value.toLowerCase();
 
-    if(rooms){
 
-      if(rooms === "4"){
+  const result =
+    listings.filter(x => {
 
-        if(x.rooms < 4)
+      if(
+        district &&
+        x.district !== district
+      )
+        return false;
+
+
+      if(rooms){
+
+        if(
+          rooms === "4" &&
+          x.rooms < 4
+        )
           return false;
 
-      }else{
 
-        if(x.rooms !== Number(rooms))
+        if(
+          rooms !== "4" &&
+          x.rooms !== Number(rooms)
+        )
           return false;
 
       }
 
-    }
 
-    if(x.price > maxPrice)
-      return false;
+      if(x.price > maxPrice)
+        return false;
 
-    if(x.area < minArea)
-      return false;
 
-    if(floor && x.floor !== floor)
-      return false;
+      if(x.area < minArea)
+        return false;
 
-    return true;
 
-  });
+      if(
+        floor &&
+        x.floor !== floor
+      )
+        return false;
 
-  document.getElementById("counter").textContent =
-    result.length + " объектов";
+
+      if(
+        condition &&
+        !String(
+          x.condition
+        ).toLowerCase()
+        .includes(condition)
+      )
+        return false;
+
+
+      return true;
+
+    });
+
+
+  document.getElementById(
+    "counter"
+  ).textContent =
+    result.length +
+    " объектов";
+
 
   if(!result.length){
 
-    box.innerHTML =
-      '<div class="empty">По этим параметрам квартир не найдено.</div>';
+    box.innerHTML = `
+      <div class="empty">
+
+        <h3>
+          Ничего не найдено
+        </h3>
+
+        <p>
+          Попробуйте изменить параметры поиска.
+        </p>
+
+        <button
+          class="btn"
+          onclick="resetFilters()"
+        >
+          Сбросить фильтры
+        </button>
+
+      </div>
+    `;
 
     return;
 
   }
 
-  box.innerHTML = result.map(x => `
+
+  box.innerHTML =
+    result.map(
+      x => cardHTML(x)
+    ).join("");
+
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+function cardHTML(x){
+
+  const image =
+    x.images &&
+    x.images.length
+      ? `
+        <img
+          src="${escapeHTML(x.images[0])}"
+          alt="${escapeHTML(x.title)}"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        >
+
+        <div
+          class="no-photo"
+          style="display:none"
+        >
+          Фото недоступно
+        </div>
+      `
+      : `
+        <div class="no-photo">
+          ФОТО КВАРТИРЫ
+        </div>
+      `;
+
+
+  const favorite =
+    isFavorite(x.id)
+      ? "active"
+      : "";
+
+
+  return `
 
     <article class="card">
 
-      <div class="photo">
-        ФОТО КВАРТИРЫ
+      <div class="card-photo">
+
+        ${image}
+
+        <div class="status ${x.status}">
+          ${statusText(x.status)}
+        </div>
+
+
+        <button
+          class="favorite ${favorite}"
+          onclick="toggleFavorite(${x.id})"
+          title="Избранное"
+        >
+          ${isFavorite(x.id) ? "♥" : "♡"}
+        </button>
+
       </div>
+
 
       <div class="card-body">
 
         <div class="tag">
-          ${x.district}
+          ${escapeHTML(x.district)}
         </div>
 
+
         <h3>
-          ${x.title}
+          ${escapeHTML(x.title)}
         </h3>
+
 
         <div class="price">
           ${money(x.price)}
         </div>
 
+
+        <div class="price-m2">
+          ${money(priceM2(x))} / м²
+        </div>
+
+
         <div class="meta">
 
           ${x.area} м² ·
-          ${x.floor} этаж<br>
+          ${x.floor} этаж
+          ${x.totalFloors ? "из " + x.totalFloors : ""}
+
+          <br>
 
           ${x.rooms}-комнатная ·
-          ${x.condition}
+          ${escapeHTML(x.condition)}
 
         </div>
+
 
         <div class="card-actions">
 
           <button
             class="btn"
-            onclick="contact()"
+            onclick="openProperty(${x.id})"
           >
-            Позвонить
+            Подробнее
           </button>
+
 
           <button
             class="btn secondary"
-            onclick="showDetails(${x.id})"
+            onclick="openWhatsApp(
+              'Здравствуйте! Интересует ${escapeJS(x.title)}, ${money(x.price)} в районе ${escapeJS(x.district)}.'
+            )"
           >
-            Подробнее
+            WhatsApp
           </button>
 
         </div>
@@ -866,9 +2211,14 @@ function render(){
 
     </article>
 
-  `).join("");
+  `;
 
 }
+
+
+/* ==========================================
+   SMART SEARCH
+========================================== */
 
 function smartSearch(){
 
@@ -878,14 +2228,24 @@ function smartSearch(){
       .value
       .toLowerCase();
 
+
   const room =
-    text.match(/(\d+)\s*(?:комнат|комн|комнатная)/);
+    text.match(
+      /(\d+)\s*(?:комнат|комн|комнатная|комнатную)/
+    );
+
 
   const price =
-    text.match(/(\d+(?:[.,]\d+)?)\s*(?:млн|миллион)/);
+    text.match(
+      /(\d+(?:[.,]\d+)?)\s*(?:млн|миллион)/
+    );
+
 
   const area =
-    text.match(/(\d+)\s*(?:м²|м2|кв)/);
+    text.match(
+      /(\d+)\s*(?:м²|м2|кв)/
+    );
+
 
   const districts = [
 
@@ -900,42 +2260,73 @@ function smartSearch(){
 
   ];
 
+
   const district =
-    districts.find(d => text.includes(d));
+    districts.find(
+      d => text.includes(d)
+    );
+
+
+  const condition =
+    text.includes("ремонт");
+
 
   if(room){
 
-    document.getElementById("rooms").value =
-      room[1] >= 4 ? "4" : room[1];
+    document.getElementById(
+      "rooms"
+    ).value =
+      Number(room[1]) >= 4
+        ? "4"
+        : room[1];
 
   }
 
+
   if(price){
 
-    document.getElementById("maxPrice").value =
+    document.getElementById(
+      "maxPrice"
+    ).value =
       Math.round(
-        Number(price[1].replace(",", ".")) * 1000000
+        Number(
+          price[1]
+            .replace(",",".")
+        ) * 1000000
       );
 
   }
 
+
   if(area){
 
-    document.getElementById("minArea").value =
+    document.getElementById(
+      "minArea"
+    ).value =
       area[1];
 
   }
 
+
   if(district){
 
     const select =
-      document.getElementById("district");
+      document.getElementById(
+        "district"
+      );
 
-    for(let option of select.options){
 
-      if(option.value.toLowerCase() === district){
+    for(
+      const option of select.options
+    ){
 
-        select.value = option.value;
+      if(
+        option.value
+          .toLowerCase() === district
+      ){
+
+        select.value =
+          option.value;
 
       }
 
@@ -943,86 +2334,643 @@ function smartSearch(){
 
   }
 
+
+  if(condition){
+
+    document.getElementById(
+      "conditionFilter"
+    ).value = "ремонт";
+
+  }
+
+
+  render();
+
+  document
+    .getElementById("catalog")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   QUICK SEARCH
+========================================== */
+
+function quickSearch(text){
+
+  document.getElementById(
+    "aiInput"
+  ).value = text;
+
+  smartSearch();
+
+}
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+function resetFilters(){
+
+  document.getElementById(
+    "district"
+  ).value = "";
+
+  document.getElementById(
+    "rooms"
+  ).value = "";
+
+  document.getElementById(
+    "maxPrice"
+  ).value = "";
+
+  document.getElementById(
+    "minArea"
+  ).value = "";
+
+  document.getElementById(
+    "floor"
+  ).value = "";
+
+  document.getElementById(
+    "conditionFilter"
+  ).value = "";
+
   render();
 
 }
 
-function contact(){
 
-  window.location.href =
-    "tel:+77058355203";
+/* ==========================================
+   PROPERTY
+========================================== */
+
+function openProperty(id){
+
+  const property =
+    listings.find(
+      x => x.id === id
+    );
+
+
+  if(!property)
+    return;
+
+
+  currentProperty =
+    property;
+
+
+  currentImage = 0;
+
+
+  renderProperty();
+
+
+  document
+    .getElementById(
+      "propertyModal"
+    )
+    .classList.add("active");
+
+
+  document.body.classList.add("lock");
 
 }
 
-function showDetails(id){
 
-  const x =
-    listings.find(item => item.id === id);
+function closeProperty(){
 
-  if(!x) return;
+  document
+    .getElementById(
+      "propertyModal"
+    )
+    .classList.remove("active");
 
-  alert(
-    x.title +
-    "\n\n" +
-    "Район: " + x.district +
-    "\nЦена: " + money(x.price) +
-    "\nПлощадь: " + x.area + " м²" +
-    "\nЭтаж: " + x.floor +
-    "\nКомнат: " + x.rooms +
-    "\nСостояние: " + x.condition +
-    "\n\nТелефон: +7 705 835 5203"
+
+  document.body.classList.remove("lock");
+
+}
+
+
+function renderProperty(){
+
+  if(!currentProperty)
+    return;
+
+
+  const images =
+    currentProperty.images &&
+    currentProperty.images.length
+      ? currentProperty.images
+      : [];
+
+
+  const gallery =
+    document.getElementById(
+      "propertyGallery"
+    );
+
+
+  if(images.length){
+
+    gallery.innerHTML = `
+
+      <img
+        src="${escapeHTML(images[currentImage])}"
+        alt="${escapeHTML(currentProperty.title)}"
+        onerror="this.style.display='none'"
+      >
+
+      ${
+        images.length > 1
+        ? `
+          <button
+            class="gallery-button gallery-prev"
+            onclick="changeImage(-1)"
+          >
+            ‹
+          </button>
+
+          <button
+            class="gallery-button gallery-next"
+            onclick="changeImage(1)"
+          >
+            ›
+          </button>
+
+          <div class="gallery-count">
+            ${currentImage + 1} / ${images.length}
+          </div>
+        `
+        : ""
+      }
+
+    `;
+
+  }else{
+
+    gallery.innerHTML = `
+      <div class="no-photo">
+        ФОТО КВАРТИРЫ
+      </div>
+    `;
+
+  }
+
+
+  const favorite =
+    isFavorite(currentProperty.id);
+
+
+  document.getElementById(
+    "propertyInfo"
+  ).innerHTML = `
+
+    <div class="tag">
+      ${escapeHTML(currentProperty.district)}
+    </div>
+
+
+    <h2>
+      ${escapeHTML(currentProperty.title)}
+    </h2>
+
+
+    <div class="property-price">
+      ${money(currentProperty.price)}
+    </div>
+
+
+    <div class="property-m2">
+      ${money(priceM2(currentProperty))} / м²
+    </div>
+
+
+    <div class="property-specs">
+
+      <div class="spec">
+        <small>Комнаты</small>
+        ${currentProperty.rooms}
+      </div>
+
+      <div class="spec">
+        <small>Площадь</small>
+        ${currentProperty.area} м²
+      </div>
+
+      <div class="spec">
+        <small>Этаж</small>
+        ${currentProperty.floor}
+        ${currentProperty.totalFloors ? "/" + currentProperty.totalFloors : ""}
+      </div>
+
+      <div class="spec">
+        <small>Состояние</small>
+        ${escapeHTML(currentProperty.condition)}
+      </div>
+
+    </div>
+
+
+    <div class="property-description">
+
+      ${escapeHTML(
+        currentProperty.description ||
+        "Описание объекта уточняйте у риелтора."
+      )}
+
+    </div>
+
+
+    <div class="property-actions">
+
+      <button
+        class="btn"
+        onclick="callAgent()"
+      >
+        Позвонить
+      </button>
+
+
+      <button
+        class="btn secondary"
+        onclick="openWhatsApp(
+          'Здравствуйте! Интересует объект DOMA: ${escapeJS(currentProperty.title)}, ${money(currentProperty.price)}.'
+        )"
+      >
+        WhatsApp
+      </button>
+
+
+      <button
+        class="btn secondary"
+        onclick="toggleFavoriteFromProperty()"
+      >
+        ${favorite ? "♥ В избранном" : "♡ В избранное"}
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+function changeImage(direction){
+
+  if(
+    !currentProperty ||
+    !currentProperty.images ||
+    !currentProperty.images.length
+  )
+    return;
+
+
+  const total =
+    currentProperty.images.length;
+
+
+  currentImage =
+    (
+      currentImage +
+      direction +
+      total
+    ) % total;
+
+
+  renderProperty();
+
+}
+
+
+function toggleFavoriteFromProperty(){
+
+  if(!currentProperty)
+    return;
+
+
+  toggleFavorite(
+    currentProperty.id
+  );
+
+
+  renderProperty();
+
+}
+
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+function callAgent(){
+
+  window.location.href =
+    "tel:" + PHONE;
+
+}
+
+
+function openWhatsApp(message){
+
+  const url =
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    url,
+    "_blank"
   );
 
 }
 
-function openAdmin(){
 
-  document
-    .getElementById("adminModal")
-    .classList.add("active");
+/* ==========================================
+   SELL REQUEST
+========================================== */
 
-  renderAdmin();
-
-}
-
-function closeAdmin(){
-
-  document
-    .getElementById("adminModal")
-    .classList.remove("active");
-
-}
-
-function addListing(){
-
-  const title =
-    document.getElementById("aTitle").value.trim();
+function sendSellRequest(){
 
   const district =
-    document.getElementById("aDistrict").value;
+    document.getElementById(
+      "sellDistrict"
+    ).value.trim();
+
 
   const rooms =
-    Number(document.getElementById("aRooms").value);
+    document.getElementById(
+      "sellRooms"
+    ).value.trim();
 
-  const price =
-    Number(document.getElementById("aPrice").value);
 
   const area =
-    Number(document.getElementById("aArea").value);
+    document.getElementById(
+      "sellArea"
+    ).value.trim();
 
-  const floor =
-    Number(document.getElementById("aFloor").value);
 
-  const condition =
-    document.getElementById("aCondition").value.trim();
+  const price =
+    document.getElementById(
+      "sellPrice"
+    ).value.trim();
 
-  if(!title || !rooms || !price || !area || !floor){
 
-    alert("Заполни название, комнаты, цену, площадь и этаж.");
+  const phone =
+    document.getElementById(
+      "sellPhone"
+    ).value.trim();
+
+
+  const comment =
+    document.getElementById(
+      "sellComment"
+    ).value.trim();
+
+
+  if(!phone){
+
+    toast(
+      "Укажите номер телефона"
+    );
 
     return;
 
   }
+
+
+  const message =
+
+`Здравствуйте! Новая заявка с сайта DOMA.
+
+Хочу продать квартиру.
+
+Район: ${district || "не указан"}
+Комнат: ${rooms || "не указано"}
+Площадь: ${area || "не указана"} м²
+Желаемая цена: ${price ? money(Number(price)) : "не указана"}
+
+Телефон:
+${phone}
+
+Дополнительно:
+${comment || "нет"}`;
+
+
+  openWhatsApp(message);
+
+}
+
+
+/* ==========================================
+   ADMIN
+========================================== */
+
+function openAdmin(){
+
+  document
+    .getElementById(
+      "adminModal"
+    )
+    .classList.add("active");
+
+
+  document.body.classList.add("lock");
+
+
+  const logged =
+    sessionStorage.getItem(
+      "doma_admin"
+    ) === "1";
+
+
+  document.getElementById(
+    "adminLogin"
+  ).style.display =
+    logged ? "none" : "block";
+
+
+  document.getElementById(
+    "adminPanel"
+  ).style.display =
+    logged ? "block" : "none";
+
+
+  if(logged)
+    renderAdmin();
+
+}
+
+
+function closeAdmin(){
+
+  document
+    .getElementById(
+      "adminModal"
+    )
+    .classList.remove("active");
+
+
+  document.body.classList.remove("lock");
+
+}
+
+
+function loginAdmin(){
+
+  const password =
+    document.getElementById(
+      "adminPassword"
+    ).value;
+
+
+  if(
+    password ===
+    ADMIN_PASSWORD
+  ){
+
+    sessionStorage.setItem(
+      "doma_admin",
+      "1"
+    );
+
+
+    document.getElementById(
+      "adminLogin"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "adminPanel"
+    ).style.display =
+      "block";
+
+
+    renderAdmin();
+
+
+    toast(
+      "Вход выполнен"
+    );
+
+  }else{
+
+    toast(
+      "Неверный пароль"
+    );
+
+  }
+
+}
+
+
+/* ==========================================
+   ADD LISTING
+========================================== */
+
+function addListing(){
+
+  const title =
+    document.getElementById(
+      "aTitle"
+    ).value.trim();
+
+
+  const district =
+    document.getElementById(
+      "aDistrict"
+    ).value;
+
+
+  const rooms =
+    Number(
+      document.getElementById(
+        "aRooms"
+      ).value
+    );
+
+
+  const price =
+    Number(
+      document.getElementById(
+        "aPrice"
+      ).value
+    );
+
+
+  const area =
+    Number(
+      document.getElementById(
+        "aArea"
+      ).value
+    );
+
+
+  const floor =
+    Number(
+      document.getElementById(
+        "aFloor"
+      ).value
+    );
+
+
+  const status =
+    document.getElementById(
+      "aStatus"
+    ).value;
+
+
+  const condition =
+    document.getElementById(
+      "aCondition"
+    ).value.trim();
+
+
+  const description =
+    document.getElementById(
+      "aDescription"
+    ).value.trim();
+
+
+  const imagesText =
+    document.getElementById(
+      "aImages"
+    ).value.trim();
+
+
+  if(
+    !title ||
+    !rooms ||
+    !price ||
+    !area ||
+    !floor
+  ){
+
+    toast(
+      "Заполните основные поля"
+    );
+
+    return;
+
+  }
+
+
+  const images =
+    imagesText
+      ? imagesText
+          .split(",")
+          .map(x => x.trim())
+          .filter(Boolean)
+      : [];
+
 
   listings.unshift({
 
@@ -1040,29 +2988,22 @@ function addListing(){
 
     floor,
 
-    condition:condition || "Хорошее состояние"
+    totalFloors:0,
+
+    condition:
+      condition ||
+      "Хорошее состояние",
+
+    status,
+
+    description:
+      description ||
+      "Описание уточняйте у риелтора.",
+
+    images
 
   });
 
-  save();
-
-  render();
-
-  renderAdmin();
-
-  document
-    .querySelectorAll(".admin-grid input")
-    .forEach(input => input.value = "");
-
-}
-
-function deleteListing(id){
-
-  if(!confirm("Удалить эту квартиру?"))
-    return;
-
-  listings =
-    listings.filter(x => x.id !== id);
 
   save();
 
@@ -1070,25 +3011,42 @@ function deleteListing(id){
 
   renderAdmin();
 
+  clearAdminForm();
+
+  toast(
+    "Квартира добавлена"
+  );
+
 }
+
+
+/* ==========================================
+   ADMIN LIST
+========================================== */
 
 function renderAdmin(){
 
   const box =
-    document.getElementById("adminList");
+    document.getElementById(
+      "adminList"
+    );
+
 
   if(!listings.length){
 
     box.innerHTML =
-      "<p>Квартир пока нет.</p>";
+      "<p>Объектов пока нет.</p>";
 
     return;
 
   }
 
+
   box.innerHTML = `
 
-    <h3>Ваши объекты</h3>
+    <h3>
+      Объекты (${listings.length})
+    </h3>
 
     ${
       listings.map(x => `
@@ -1096,19 +3054,42 @@ function renderAdmin(){
         <div class="admin-item">
 
           <div>
-            <b>${x.title}</b><br>
+
+            <b>
+              ${escapeHTML(x.title)}
+            </b>
+
+            <br>
+
             <small>
-              ${x.district} ·
+              ${escapeHTML(x.district)}
+              ·
               ${money(x.price)}
+              ·
+              ${statusText(x.status)}
             </small>
+
           </div>
 
-          <button
-            class="danger"
-            onclick="deleteListing(${x.id})"
-          >
-            Удалить
-          </button>
+
+          <div class="admin-buttons">
+
+            <button
+              class="admin-edit"
+              onclick="openProperty(${x.id})"
+            >
+              Просмотр
+            </button>
+
+
+            <button
+              class="admin-danger"
+              onclick="deleteListing(${x.id})"
+            >
+              Удалить
+            </button>
+
+          </div>
 
         </div>
 
@@ -1119,32 +3100,182 @@ function renderAdmin(){
 
 }
 
+
+/* ==========================================
+   DELETE
+========================================== */
+
+function deleteListing(id){
+
+  if(
+    !confirm(
+      "Удалить эту квартиру?"
+    )
+  )
+    return;
+
+
+  listings =
+    listings.filter(
+      x => x.id !== id
+    );
+
+
+  favorites =
+    favorites.filter(
+      x => x !== id
+    );
+
+
+  save();
+
+  saveFavorites();
+
+  render();
+
+  renderAdmin();
+
+  toast(
+    "Объект удалён"
+  );
+
+}
+
+
+/* ==========================================
+   CLEAR ADMIN
+========================================== */
+
+function clearAdminForm(){
+
+  [
+    "aTitle",
+    "aRooms",
+    "aPrice",
+    "aArea",
+    "aFloor",
+    "aCondition",
+    "aImages",
+    "aDescription"
+  ].forEach(id => {
+
+    document.getElementById(
+      id
+    ).value = "";
+
+  });
+
+}
+
+
+/* ==========================================
+   MODAL OUTSIDE CLICK
+========================================== */
+
+function closeModalOutside(
+  event,
+  id
+){
+
+  if(
+    event.target.id === id
+  ){
+
+    if(
+      id === "propertyModal"
+    )
+      closeProperty();
+
+
+    if(
+      id === "adminModal"
+    )
+      closeAdmin();
+
+  }
+
+}
+
+
+/* ==========================================
+   ESCAPE HTML
+========================================== */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+function escapeJS(value){
+
+  return String(value)
+    .replaceAll("\\","\\\\")
+    .replaceAll("'","\\'")
+    .replaceAll("\n"," ");
+
+}
+
+
+/* ==========================================
+   FILTER EVENTS
+========================================== */
+
 [
   "district",
   "rooms",
   "maxPrice",
   "minArea",
-  "floor"
+  "floor",
+  "conditionFilter"
 ].forEach(id => {
 
-  document
-    .getElementById(id)
-    .addEventListener("input",render);
+  const el =
+    document.getElementById(id);
 
-  document
-    .getElementById(id)
-    .addEventListener("change",render);
+
+  el.addEventListener(
+    "input",
+    render
+  );
+
+
+  el.addEventListener(
+    "change",
+    render
+  );
 
 });
 
+
+/* ==========================================
+   SEARCH ENTER
+========================================== */
+
 document
   .getElementById("aiInput")
-  .addEventListener("keydown",e => {
+  .addEventListener(
+    "keydown",
+    event => {
 
-    if(e.key === "Enter")
-      smartSearch();
+      if(
+        event.key === "Enter"
+      )
+        smartSearch();
 
-  });
+    }
+  );
+
+
+/* ==========================================
+   INITIAL RENDER
+========================================== */
 
 render();
 
