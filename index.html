@@ -1,1 +1,1154 @@
-index.
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DOMA — подбор и продажа квартир в Актобе.">
+<meta name="theme-color" content="#111111">
+<title>DOMA — Недвижимость Актобе</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f5f2;
+  color:#111;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(245,245,242,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #ddd;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.nav-right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:12px 18px;
+  background:#111;
+  color:#fff;
+}
+
+.btn.secondary{
+  background:#fff;
+  color:#111;
+  border:1px solid #ccc;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px;
+}
+
+.hero{
+  padding:80px 0 45px;
+}
+
+.hero-label{
+  font-size:14px;
+  color:#666;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  max-width:900px;
+  font-size:clamp(42px,7vw,82px);
+  line-height:.96;
+  letter-spacing:-4px;
+  margin:0 0 28px;
+}
+
+.hero p{
+  max-width:650px;
+  color:#666;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.ai-box{
+  margin-top:35px;
+  background:#111;
+  color:#fff;
+  padding:24px;
+  border-radius:22px;
+}
+
+.ai-title{
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:12px;
+}
+
+.ai-row{
+  display:flex;
+  gap:10px;
+}
+
+.ai-row input{
+  flex:1;
+  min-width:0;
+  padding:17px;
+  border:0;
+  border-radius:12px;
+  outline:0;
+}
+
+.ai-row button{
+  padding:0 22px;
+  border:0;
+  border-radius:12px;
+  background:#fff;
+  color:#111;
+  font-weight:700;
+}
+
+.filters{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:18px;
+  padding:18px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin:20px 0 35px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field label{
+  font-size:12px;
+  color:#777;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  background:#fff;
+  outline:0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:18px;
+}
+
+.section-head h2{
+  margin:0;
+  font-size:32px;
+  letter-spacing:-1px;
+}
+
+.counter{
+  color:#777;
+  font-size:14px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  padding-bottom:70px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 35px rgba(0,0,0,.07);
+}
+
+.photo{
+  height:220px;
+  background:
+    linear-gradient(135deg,#ddd,#f6f6f6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888;
+  font-size:13px;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.tag{
+  display:inline-block;
+  font-size:12px;
+  background:#f0f0ed;
+  padding:7px 10px;
+  border-radius:20px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  margin:0 0 10px;
+  font-size:21px;
+}
+
+.price{
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.meta{
+  color:#666;
+  line-height:1.5;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.card-actions{
+  display:flex;
+  gap:8px;
+}
+
+.card-actions button{
+  flex:1;
+}
+
+.empty{
+  grid-column:1/-1;
+  background:#fff;
+  border:1px dashed #bbb;
+  padding:50px;
+  text-align:center;
+  border-radius:18px;
+  color:#777;
+}
+
+.about{
+  background:#111;
+  color:#fff;
+  padding:65px 0;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+
+.about h2{
+  font-size:48px;
+  letter-spacing:-2px;
+  margin:0;
+}
+
+.about p{
+  color:#bbb;
+  line-height:1.7;
+}
+
+.contact{
+  padding:60px 0;
+}
+
+.contact-box{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:20px;
+  padding:30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.phone{
+  font-size:30px;
+  font-weight:800;
+}
+
+footer{
+  border-top:1px solid #ddd;
+  padding:25px 0;
+  color:#777;
+  font-size:13px;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:20px;
+  padding:25px;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.close{
+  border:0;
+  background:#eee;
+  border-radius:10px;
+  width:38px;
+  height:38px;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.admin-grid input,
+.admin-grid select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:10px;
+}
+
+.admin-full{
+  grid-column:1/-1;
+}
+
+.admin-list{
+  margin-top:25px;
+}
+
+.admin-item{
+  border:1px solid #ddd;
+  padding:14px;
+  border-radius:12px;
+  margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.danger{
+  background:#111;
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  padding:8px 12px;
+}
+
+@media(max-width:900px){
+  .filters{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .nav{
+    padding:15px;
+  }
+
+  .nav-right span{
+    display:none;
+  }
+
+  .container{
+    padding:0 15px;
+  }
+
+  .hero{
+    padding:55px 0 30px;
+  }
+
+  .hero h1{
+    font-size:47px;
+    letter-spacing:-2.5px;
+  }
+
+  .ai-row{
+    flex-direction:column;
+  }
+
+  .ai-row button{
+    padding:14px;
+  }
+
+  .filters{
+    grid-template-columns:1fr;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-box{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .phone{
+    font-size:24px;
+  }
+
+  .admin-grid{
+    grid-template-columns:1fr;
+  }
+
+  .admin-full{
+    grid-column:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">DOMA</div>
+
+    <div class="nav-right">
+      <span>Недвижимость · Актобе</span>
+      <button class="btn secondary" onclick="openAdmin()">Админ</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-label">DOMA / АКТОБЕ</div>
+
+    <h1>Найдите квартиру под себя.</h1>
+
+    <p>
+      Подбор квартир по району, количеству комнат, цене,
+      площади и этажу. Выбирайте подходящий вариант и связывайтесь
+      напрямую с риелтором.
+    </p>
+
+    <div class="ai-box">
+
+      <div class="ai-title">
+        УМНЫЙ ПОИСК
+      </div>
+
+      <div class="ai-row">
+        <input
+          id="aiInput"
+          placeholder="Например: 2 комнаты до 22 млн, 50 м², Батыс"
+        >
+
+        <button onclick="smartSearch()">
+          Найти
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+<div class="container">
+
+  <div class="filters">
+
+    <div class="field">
+      <label>Район</label>
+      <select id="district">
+        <option value="">Все районы</option>
+        <option>Батыс</option>
+        <option>Старый город</option>
+        <option>11-й микрорайон</option>
+        <option>Алга</option>
+        <option>Акжар</option>
+        <option>Авиагородок</option>
+        <option>Жилянка</option>
+        <option>Нур Актобе</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Комнаты</label>
+      <select id="rooms">
+        <option value="">Любое</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4+</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Максимальная цена, ₸</label>
+      <input id="maxPrice" type="number" placeholder="Например 25000000">
+    </div>
+
+    <div class="field">
+      <label>Минимальная площадь, м²</label>
+      <input id="minArea" type="number" placeholder="Например 45">
+    </div>
+
+    <div class="field">
+      <label>Этаж</label>
+      <input id="floor" type="number" placeholder="Например 5">
+    </div>
+
+  </div>
+
+  <div class="section-head">
+    <h2>Квартиры</h2>
+    <div class="counter" id="counter"></div>
+  </div>
+
+  <div class="grid" id="listings"></div>
+
+</div>
+</section>
+
+<section class="about">
+  <div class="container">
+
+    <div class="about-grid">
+
+      <div>
+        <div class="hero-label">О DOMA</div>
+        <h2>Недвижимость без лишнего.</h2>
+      </div>
+
+      <div>
+        <p>
+          DOMA — персональный каталог квартир риелтора.
+          Здесь можно подобрать объект по параметрам,
+          посмотреть характеристики и связаться по поводу просмотра.
+        </p>
+
+        <p>
+          База квартир постепенно пополняется новыми объектами.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+
+    <div class="contact-box">
+
+      <div>
+        <div class="hero-label">КОНТАКТ</div>
+        <div class="phone">+7 705 835 5203</div>
+      </div>
+
+      <button class="btn" onclick="contact()">
+        Связаться
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 DOMA · Недвижимость Актобе
+  </div>
+</footer>
+
+<!-- ADMIN MODAL -->
+
+<div class="modal" id="adminModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>Админ-панель</h2>
+      <button class="close" onclick="closeAdmin()">×</button>
+    </div>
+
+    <p style="color:#777;font-size:14px">
+      Добавляй квартиры в каталог. Данные сохраняются
+      в браузере этого устройства.
+    </p>
+
+    <div class="admin-grid">
+
+      <input id="aTitle" placeholder="Название квартиры">
+
+      <select id="aDistrict">
+        <option>Батыс</option>
+        <option>Старый город</option>
+        <option>11-й микрорайон</option>
+        <option>Алга</option>
+        <option>Акжар</option>
+        <option>Авиагородок</option>
+        <option>Жилянка</option>
+        <option>Нур Актобе</option>
+      </select>
+
+      <input id="aRooms" type="number" placeholder="Комнаты">
+
+      <input id="aPrice" type="number" placeholder="Цена ₸">
+
+      <input id="aArea" type="number" placeholder="Площадь м²">
+
+      <input id="aFloor" type="number" placeholder="Этаж">
+
+      <input
+        id="aCondition"
+        class="admin-full"
+        placeholder="Состояние / описание"
+      >
+
+      <button
+        class="btn admin-full"
+        onclick="addListing()"
+      >
+        Добавить квартиру
+      </button>
+
+    </div>
+
+    <div class="admin-list" id="adminList"></div>
+
+  </div>
+
+</div>
+
+<script>
+
+const STORAGE_KEY = "doma_realty_listings";
+
+const defaultListings = [
+
+  {
+    id:1,
+    title:"2-комнатная квартира",
+    district:"Батыс",
+    rooms:2,
+    price:21500000,
+    area:56,
+    floor:5,
+    condition:"После ремонта"
+  },
+
+  {
+    id:2,
+    title:"1-комнатная квартира",
+    district:"Старый город",
+    rooms:1,
+    price:14500000,
+    area:39,
+    floor:2,
+    condition:"Хорошее состояние"
+  },
+
+  {
+    id:3,
+    title:"3-комнатная квартира",
+    district:"11-й микрорайон",
+    rooms:3,
+    price:28900000,
+    area:72,
+    floor:7,
+    condition:"Евроремонт"
+  }
+
+];
+
+let listings =
+  JSON.parse(localStorage.getItem(STORAGE_KEY))
+  || defaultListings;
+
+function save(){
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(listings)
+  );
+
+}
+
+function money(value){
+
+  return new Intl.NumberFormat("ru-RU").format(value)
+  + " ₸";
+
+}
+
+function render(){
+
+  const box =
+    document.getElementById("listings");
+
+  const district =
+    document.getElementById("district").value;
+
+  const rooms =
+    document.getElementById("rooms").value;
+
+  const maxPrice =
+    Number(document.getElementById("maxPrice").value) || Infinity;
+
+  const minArea =
+    Number(document.getElementById("minArea").value) || 0;
+
+  const floor =
+    Number(document.getElementById("floor").value) || 0;
+
+  const result = listings.filter(x => {
+
+    if(district && x.district !== district)
+      return false;
+
+    if(rooms){
+
+      if(rooms === "4"){
+
+        if(x.rooms < 4)
+          return false;
+
+      }else{
+
+        if(x.rooms !== Number(rooms))
+          return false;
+
+      }
+
+    }
+
+    if(x.price > maxPrice)
+      return false;
+
+    if(x.area < minArea)
+      return false;
+
+    if(floor && x.floor !== floor)
+      return false;
+
+    return true;
+
+  });
+
+  document.getElementById("counter").textContent =
+    result.length + " объектов";
+
+  if(!result.length){
+
+    box.innerHTML =
+      '<div class="empty">По этим параметрам квартир не найдено.</div>';
+
+    return;
+
+  }
+
+  box.innerHTML = result.map(x => `
+
+    <article class="card">
+
+      <div class="photo">
+        ФОТО КВАРТИРЫ
+      </div>
+
+      <div class="card-body">
+
+        <div class="tag">
+          ${x.district}
+        </div>
+
+        <h3>
+          ${x.title}
+        </h3>
+
+        <div class="price">
+          ${money(x.price)}
+        </div>
+
+        <div class="meta">
+
+          ${x.area} м² ·
+          ${x.floor} этаж<br>
+
+          ${x.rooms}-комнатная ·
+          ${x.condition}
+
+        </div>
+
+        <div class="card-actions">
+
+          <button
+            class="btn"
+            onclick="contact()"
+          >
+            Позвонить
+          </button>
+
+          <button
+            class="btn secondary"
+            onclick="showDetails(${x.id})"
+          >
+            Подробнее
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+}
+
+function smartSearch(){
+
+  const text =
+    document
+      .getElementById("aiInput")
+      .value
+      .toLowerCase();
+
+  const room =
+    text.match(/(\d+)\s*(?:комнат|комн|комнатная)/);
+
+  const price =
+    text.match(/(\d+(?:[.,]\d+)?)\s*(?:млн|миллион)/);
+
+  const area =
+    text.match(/(\d+)\s*(?:м²|м2|кв)/);
+
+  const districts = [
+
+    "батыс",
+    "старый город",
+    "11-й микрорайон",
+    "алга",
+    "акжар",
+    "авиагородок",
+    "жилянка",
+    "нур актобе"
+
+  ];
+
+  const district =
+    districts.find(d => text.includes(d));
+
+  if(room){
+
+    document.getElementById("rooms").value =
+      room[1] >= 4 ? "4" : room[1];
+
+  }
+
+  if(price){
+
+    document.getElementById("maxPrice").value =
+      Math.round(
+        Number(price[1].replace(",", ".")) * 1000000
+      );
+
+  }
+
+  if(area){
+
+    document.getElementById("minArea").value =
+      area[1];
+
+  }
+
+  if(district){
+
+    const select =
+      document.getElementById("district");
+
+    for(let option of select.options){
+
+      if(option.value.toLowerCase() === district){
+
+        select.value = option.value;
+
+      }
+
+    }
+
+  }
+
+  render();
+
+}
+
+function contact(){
+
+  window.location.href =
+    "tel:+77058355203";
+
+}
+
+function showDetails(id){
+
+  const x =
+    listings.find(item => item.id === id);
+
+  if(!x) return;
+
+  alert(
+    x.title +
+    "\n\n" +
+    "Район: " + x.district +
+    "\nЦена: " + money(x.price) +
+    "\nПлощадь: " + x.area + " м²" +
+    "\nЭтаж: " + x.floor +
+    "\nКомнат: " + x.rooms +
+    "\nСостояние: " + x.condition +
+    "\n\nТелефон: +7 705 835 5203"
+  );
+
+}
+
+function openAdmin(){
+
+  document
+    .getElementById("adminModal")
+    .classList.add("active");
+
+  renderAdmin();
+
+}
+
+function closeAdmin(){
+
+  document
+    .getElementById("adminModal")
+    .classList.remove("active");
+
+}
+
+function addListing(){
+
+  const title =
+    document.getElementById("aTitle").value.trim();
+
+  const district =
+    document.getElementById("aDistrict").value;
+
+  const rooms =
+    Number(document.getElementById("aRooms").value);
+
+  const price =
+    Number(document.getElementById("aPrice").value);
+
+  const area =
+    Number(document.getElementById("aArea").value);
+
+  const floor =
+    Number(document.getElementById("aFloor").value);
+
+  const condition =
+    document.getElementById("aCondition").value.trim();
+
+  if(!title || !rooms || !price || !area || !floor){
+
+    alert("Заполни название, комнаты, цену, площадь и этаж.");
+
+    return;
+
+  }
+
+  listings.unshift({
+
+    id:Date.now(),
+
+    title,
+
+    district,
+
+    rooms,
+
+    price,
+
+    area,
+
+    floor,
+
+    condition:condition || "Хорошее состояние"
+
+  });
+
+  save();
+
+  render();
+
+  renderAdmin();
+
+  document
+    .querySelectorAll(".admin-grid input")
+    .forEach(input => input.value = "");
+
+}
+
+function deleteListing(id){
+
+  if(!confirm("Удалить эту квартиру?"))
+    return;
+
+  listings =
+    listings.filter(x => x.id !== id);
+
+  save();
+
+  render();
+
+  renderAdmin();
+
+}
+
+function renderAdmin(){
+
+  const box =
+    document.getElementById("adminList");
+
+  if(!listings.length){
+
+    box.innerHTML =
+      "<p>Квартир пока нет.</p>";
+
+    return;
+
+  }
+
+  box.innerHTML = `
+
+    <h3>Ваши объекты</h3>
+
+    ${
+      listings.map(x => `
+
+        <div class="admin-item">
+
+          <div>
+            <b>${x.title}</b><br>
+            <small>
+              ${x.district} ·
+              ${money(x.price)}
+            </small>
+          </div>
+
+          <button
+            class="danger"
+            onclick="deleteListing(${x.id})"
+          >
+            Удалить
+          </button>
+
+        </div>
+
+      `).join("")
+    }
+
+  `;
+
+}
+
+[
+  "district",
+  "rooms",
+  "maxPrice",
+  "minArea",
+  "floor"
+].forEach(id => {
+
+  document
+    .getElementById(id)
+    .addEventListener("input",render);
+
+  document
+    .getElementById(id)
+    .addEventListener("change",render);
+
+});
+
+document
+  .getElementById("aiInput")
+  .addEventListener("keydown",e => {
+
+    if(e.key === "Enter")
+      smartSearch();
+
+  });
+
+render();
+
+</script>
+
+</body>
+  </html>
